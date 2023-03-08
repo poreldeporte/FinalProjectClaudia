@@ -14,7 +14,7 @@ const Navbar = () => {
     const { logout } = useContext(AuthContext)
 
     return (
-        <nav>
+        <nav className="navbar">
 
             <Link to={'/'}>Home</Link>
             <Link onClick={getClothes} to={'/clothes'}>All Clothes</Link>

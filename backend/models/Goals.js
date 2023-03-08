@@ -1,10 +1,9 @@
 const { Schema, model } = require("mongoose");
 
-const clothesSchema = new Schema(
+const goalsSchema = new Schema(
     {
         title: String,
         description: String,
-        price: Number, 
         contributor: {type: Schema.Types.ObjectId, ref: "User"},
     },
     {
@@ -13,6 +12,6 @@ const clothesSchema = new Schema(
     }
 );
 
-const Clothes = model("Clothes", clothesSchema)
+const Goals = model("Goals", goalsSchema)
 
-module.exports = Clothes;
+module.exports = Goals;

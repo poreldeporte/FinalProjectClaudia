@@ -1,9 +1,8 @@
-import { Routes, Route, Link, Navigate, Outlet } from 'react-router-dom'
 import './App.css';
+import { Routes, Route, Link, Navigate, Outlet } from "react-router-dom";
 
 import Navbar from './components/Navbar';
 
-import Clothes from './pages/Clothes';
 import EditPost from './pages/EditPost';
 import EditProfile from './pages/EditProfile';
 import Home from './pages/Home';
@@ -36,7 +35,6 @@ const App = () => {
           <Routes>
 
             <Route path='/' element={<Home />} />
-            <Route path='/clothes' element={<Clothes />} />
             
             <Route element={<LoggedIn />}>
 
