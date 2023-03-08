@@ -9,7 +9,7 @@ const Navbar = () => {
         return localStorage.getItem("authToken")
     }
 
-    const { user, getClothes } = useContext(LoadingContext)
+    const { user, getGoals } = useContext(LoadingContext)
 
     const { logout } = useContext(AuthContext)
 
@@ -17,14 +17,14 @@ const Navbar = () => {
         <nav className="navbar">
 
             <Link to={'/'}>Home</Link>
-            <Link onClick={getClothes} to={'/clothes'}>All Clothes</Link>
+            <Link onClick={getGoals} to={'/goals'}>All Goals</Link>
             
             {
                 getToken() ? 
                 <>
                     {user && <Link to={`/profile/${user._id}`}>Profile</Link>}
                     <Link to={'/new-post'}>New Post</Link>
-                    <button onClick={logout}>Logout</button>
+                    <button className="btn" onClick={logout}>Logout</button>
                 </>
 
                 :

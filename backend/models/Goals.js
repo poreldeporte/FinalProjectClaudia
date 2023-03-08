@@ -1,17 +1,20 @@
-const { Schema, model } = require("mongoose");
+const mongoose = require('mongoose')
 
-const goalsSchema = new Schema(
-    {
-        title: String,
-        description: String,
-        contributor: {type: Schema.Types.ObjectId, ref: "User"},
+const goalSchema = mongoose.Schema(
+  {
+    user: {
+      type: mongoose.Schema.Types.ObjectId,
+      required: true,
+      ref: 'User',
     },
-    {
-    timeseries: true,
+    text: {
+      type: String,
+      required: [true, 'Please add a text value'],
+    },
+  },
+  {
     timestamps: true,
-    }
-);
+  }
+)
 
-const Goals = model("Goals", goalsSchema)
-
-module.exports = Goals;
+module.exports = mongoose.model('Goal', goalSchema)
