@@ -15,23 +15,30 @@ const Navbar = () => {
 
     return (
         <nav className="navbar">
-
-            <Link to={'/'}>Home</Link>
-            <Link onClick={getGoals} to={'/goals'}>All Goals</Link>
+            <div>
+                <Link to={'/'}>The Knot</Link>
+            </div>
+            {/* <Link onClick={getGoals} to={'/goals'}>All Goals</Link> */}
             
             {
                 getToken() ? 
                 <>
                     {user && <Link to={`/profile/${user._id}`}>Profile</Link>}
-                    <Link to={'/new-goal-form'}>New Goal</Link>
+                    {/* <Link to={'/new-goal-form'}>New Goal</Link> */}
                     <button className="btn" onClick={logout}>Logout</button>
                 </>
 
                 :
 
                 <>
-                    <Link to={'/signup'}>Signup</Link>
-                    <Link to={'/login'}>Login</Link>
+                    <div>
+                        <span className="nav-link">
+                            <Link to={'/signup'}>Signup</Link>
+                        </span>
+                        <span className="nav-link">
+                            <Link to={'/login'}>Login</Link>
+                        </span>
+                    </div>
                 </>
             }
 
