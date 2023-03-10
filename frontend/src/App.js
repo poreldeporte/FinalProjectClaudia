@@ -7,7 +7,7 @@ import EditPost from './pages/EditPost';
 import EditProfile from './pages/EditProfile';
 import Home from './pages/Home';
 import Login from './pages/Login';
-import NewPost from './pages/NewPost';
+import NewGoalForm from './pages/NewGoalForm';
 import Profile from './pages/Profile'
 import Signup from './pages/Signup'
 
@@ -40,7 +40,7 @@ const App = () => {
 
               <Route path='/post/:id' element={<EditPost />} />
               <Route path='/edit-profile/:id' element={<EditProfile />} />
-              <Route path='/new-post' element={<NewPost />} />
+              <Route path='/new-goal-form' element={<NewGoalForm />} />
               <Route path='/profile/:id' element={<Profile />} />
             
             </Route> 

@@ -11,8 +11,8 @@ const LoadingProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [message, setMessage] = useState('');
 
-    const [ countries, setCountries ] = useState(null);
-    const [ country, setCountry ] = useState(null);
+    const [ goals, setGoals ] = useState(null);
+    const [ goal, setGoal ] = useState(null);
 
     const [ posts, setPosts ] = useState([])
     const [ post, setPost ] = useState(null)
@@ -24,43 +24,43 @@ const LoadingProvider = ({ children }) => {
       }, 4000)
     }
 
-    const getCountries = () => {
+//     const getGoals = () => {
 
-      if (!countries) {
-        console.log("Calling API")
-        axios.get('https://ih-countries-api.herokuapp.com/countries')
-        .then((response) => {
-          setCountries(response.data)
-        })
-        .catch((err) => {
-          console.log(err)
-        })
-      }
-    }
+//       if (!goals) {
+//         console.log("Calling API")
+//         // axios.get('https://ih-countries-api.herokuapp.com/countries')
+//         .then((response) => {
+//           setGoals(response.data)
+//         })
+//         .catch((err) => {
+//           console.log(err)
+//         })
+//       }
+//     }
 
-    const noCountries = (code) => {
-      axios.get('https://ih-countries-api.herokuapp.com/countries')
-      .then((response) => {
-        let foundCountries = response.data
-        setCountries(foundCountries)
-        let thisCountry = foundCountries.find((country) => country.alpha2Code === code)
-        setCountry(thisCountry)
+//     const noGoals = (code) => {
+//     //   axios.get('https://ih-countries-api.herokuapp.com/countries')
+//       .then((response) => {
+//         let foundGoals = response.data
+//         setGoals(foundGoals)
+//         let thisGoal = foundoal.find((goal) => country.alpha2Code === code)
+//         setCountry(thisCountry)
         
-      })
-      .catch((err) => {
-        console.log(err)
-      })
-    }
+//       })
+//       .catch((err) => {
+//         console.log(err)
+//       })
+//     }
 
-    const findCountry = (code) => {
+//     const findCountry = (code) => {
 
-      if (!countries) {
-        noCountries(code)
-      } else {
-        let thisCountry = countries.find((country) => country.alpha2Code === code)
-        setCountry(thisCountry)
-      }
-  }
+//       if (!countries) {
+//         noCountries(code)
+//       } else {
+//         let thisCountry = countries.find((country) => country.alpha2Code === code)
+//         setCountry(thisCountry)
+//       }
+//   }
 
   const getPosts = () => {
     get('/posts')
@@ -83,7 +83,7 @@ const LoadingProvider = ({ children }) => {
   }
 
     return (
-        <LoadingContext.Provider value={{ countries, country, posts, post, isLoading, message, setUser, user, setPost, setPosts, setCountries, setCountry, setIsLoading, setMessage, setTimedMessage, getCountries, findCountry, getPosts, getPost }}>
+        <LoadingContext.Provider value={{ goals, goal, posts, post, isLoading, message, setUser, user, setPost, setPosts, setGoals, setGoal, setIsLoading, setMessage, setTimedMessage, getPosts, getPost }}>
           {children}
         </LoadingContext.Provider>
       );
